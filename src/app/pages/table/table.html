@@ -1,0 +1,21 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td><app-search (query)="keyQuery.set($event)"></app-search></td>
+                <td><app-search (query)="valueQuery.set($event)"></app-search></td>
+            </tr>
+        @for(st of localStorageItems() | filter: keyQuery(): valueQuery() ; track $index) {
+            <tr>
+                <td>{{ st.key }}</td>
+                <td>{{ st.value }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
