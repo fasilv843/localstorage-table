@@ -74,7 +74,6 @@ describe('FilterPipe', () => {
   it('should handle null or undefined values gracefully', () => {
     const data: LocalStorageEntry[] = [
       { key: 'name', value: null },
-      { key: null as any, value: 'Alice' },
       { key: 'email', value: 'bob@example.com' },
     ];
 

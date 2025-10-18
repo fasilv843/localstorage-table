@@ -26,9 +26,10 @@ describe('Table', () => {
 
   it('should render table headers', () => {
     const ths = fixture.nativeElement.querySelectorAll('th');
-    expect(ths.length).toBe(2);
+    expect(ths.length).toBe(3);
     expect(ths[0].textContent).toContain('Key');
     expect(ths[1].textContent).toContain('Value');
+    expect(ths[2].textContent).toContain('Actions');
   });
 
   it('should render localStorage items', () => {

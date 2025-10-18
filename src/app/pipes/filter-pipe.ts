@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
 
     const filteredStorage = localStorages.filter(s => {
 
-      const keyMatch = !s.key && !key || s.key && s.key.toLowerCase().includes(key)
+      const keyMatch = s.key && s.key.toLowerCase().includes(key)
       const valueMatch = !s.value && !value || s.value && s.value.toLowerCase().includes(value)
 
       return keyMatch && valueMatch
