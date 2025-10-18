@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "paywint": {
+    "localstorage-table": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "paywint:build:production"
+              "buildTarget": "localstorage-table:build:production"
             },
             "development": {
-              "buildTarget": "paywint:build:development"
+              "buildTarget": "localstorage-table:build:development"
             }
           },
           "defaultConfiguration": "development"

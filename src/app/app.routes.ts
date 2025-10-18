@@ -3,12 +3,12 @@ import { Table } from './pages/table/table';
 
 export const routes: Routes = [
     {
-        path: 'table',
+        path: 'localstorage',
         component: Table
     },
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'table'
+        redirectTo: 'localstorage'
     }
 ];
