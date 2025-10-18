@@ -36,6 +36,11 @@ export class StorageService {
     this.manualTrigger$.next()
   }
 
+  removeItem(key: string) {
+    localStorage.removeItem(key)
+    this.manualTrigger$.next()
+  }
+
   clear() {
     localStorage.clear()
     this.manualTrigger$.next()

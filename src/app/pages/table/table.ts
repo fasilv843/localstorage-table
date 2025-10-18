@@ -17,4 +17,32 @@ export class Table {
 
   keyQuery = signal('')
   valueQuery = signal('')
+
+  onUpdate(key: string) {
+    const newValue = prompt('Enter Value');
+    if (newValue) {
+      this.storageService.setItem(key, newValue)
+    }
+  }
+
+  onAdd() {
+    const key = prompt('Enter key');
+    if (!key) return; // user cancelled or empty key
+
+    const value = prompt('Enter value');
+    if (value === null) return; // user cancelled
+    this.storageService.setItem(key, value);
+  }
+
+  onDelete(key: string) {
+    if (confirm('Are you sure?')) {
+      this.storageService.removeItem(key)
+    }
+  }
+
+  onClear() {
+    if (confirm('Are you sure?')) {
+      this.storageService.clear()
+    }
+  }
 }

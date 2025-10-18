@@ -1,21 +1,103 @@
+<!-- <main class="flex flex-col gap-5 mt-5">
+    <div class="flex justify-between items-center px-10">
+        <h1 class="text-3xl font-bold">Local Storage Table</h1>
+        <div class="flex gap-2">
+            <button (click)="onAdd()" class="cursor-pointer bg-green-700 text-white py-1 px-4 rounded">Add</button>
+            <button (click)="onClear()" class="cursor-pointer bg-red-700 text-white py-1 px-4 rounded">Clear</button>
+        </div>
+    </div>
+    <div class="px-10">
+        <table class="w-full table-fixed">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr class="text-center">
+                        <td class="p-1"><app-search (query)="keyQuery.set($event)"></app-search></td>
+                        <td><app-search (query)="valueQuery.set($event)"></app-search></td>
+                    </tr>
+                @for(st of localStorageItems() | filter: keyQuery(): valueQuery() ; track $index) {
+                    <tr class="text-center border-b hover:bg-gray-300">
+                        <td class="max-w-xs truncate overflow-hidden text-ellipsis" title="{{ st.key }}">{{ st.key }}</td>
+                        <td class="max-w-xs truncate overflow-hidden text-ellipsis" title="{{ st.value }}">{{ st.value }}</td>
+                        <td class="flex gap-2 py-2 justify-center items-center">
+                            <button (click)="onUpdate(st.key)" class="cursor-pointer bg-blue-700 text-white py-1 px-4 rounded">Update</button>
+                            <button (click)="onDelete(st.key)" class="cursor-pointer bg-red-700 text-white py-1 px-4 rounded">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main> -->
 
-<table>
-    <thead>
+
+<main class="flex flex-col gap-5 mt-5">
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center px-10 gap-3 md:gap-0">
+    <h1 class="text-3xl font-bold text-gray-800">Local Storage Table</h1>
+    <div class="flex gap-2">
+      <button
+        (click)="onAdd()"
+        class="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded shadow transition"
+      >
+        Add
+      </button>
+      <button
+        (click)="onClear()"
+        class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded shadow transition"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="px-4 md:px-10 overflow-x-auto">
+    <table class="w-full table-fixed border border-gray-200 shadow-md rounded-lg overflow-hidden">
+      <!-- Table Head -->
+      <thead class="bg-gray-100 text-gray-700 uppercase text-sm">
         <tr>
-            <th>Key</th>
-            <th>Value</th>
+          <th class="p-3 text-left">Key</th>
+          <th class="p-3 text-left">Value</th>
+          <th class="p-3 text-center">Actions</th>
         </tr>
-    </thead>
-    <tbody>
-            <tr>
-                <td><app-search (query)="keyQuery.set($event)"></app-search></td>
-                <td><app-search (query)="valueQuery.set($event)"></app-search></td>
-            </tr>
+      </thead>
+
+      <!-- Search Row -->
+      <tbody>
+        <tr class="bg-gray-50 text-left">
+          <td class="p-2"><app-search (query)="keyQuery.set($event)"></app-search></td>
+          <td class="p-2"><app-search (query)="valueQuery.set($event)"></app-search></td>
+          <td></td>
+        </tr>
+
+        <!-- Table Rows -->
         @for(st of localStorageItems() | filter: keyQuery(): valueQuery() ; track $index) {
-            <tr>
-                <td>{{ st.key }}</td>
-                <td>{{ st.value }}</td>
-            </tr>
+        <tr class="text-gray-700 hover:bg-gray-100 border-b">
+          <td class="p-2 max-w-[150px] truncate" title="{{ st.key }}">{{ st.key }}</td>
+          <td class="p-2 max-w-[200px] truncate" title="{{ st.value }}">{{ st.value }}</td>
+          <td class="flex gap-2 justify-center items-center p-2">
+            <button
+              (click)="onUpdate(st.key)"
+              class="cursor-pointer bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-3 rounded transition"
+            >
+              Update
+            </button>
+            <button
+              (click)="onDelete(st.key)"
+              class="cursor-pointer bg-red-500 hover:bg-red-600 text-white font-medium py-1 px-3 rounded transition"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
         }
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</main>
