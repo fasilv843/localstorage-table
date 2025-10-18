@@ -3,11 +3,12 @@ import { StorageService } from '../../services/storage';
 import { Search } from "../../components/search/search";
 import { FilterPipe } from '../../pipes/filter-pipe';
 import { toSignal } from '@angular/core/rxjs-interop'
+import { QueryHighlight } from "../../directives/query-highlight";
 
 
 @Component({
   selector: 'app-table',
-  imports: [Search, FilterPipe],
+  imports: [Search, FilterPipe, QueryHighlight],
   templateUrl: './table.html',
   styleUrl: './table.css'
 })

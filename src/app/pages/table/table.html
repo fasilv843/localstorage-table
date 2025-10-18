@@ -79,8 +79,8 @@
         <!-- Table Rows -->
         @for(st of localStorageItems() | filter: keyQuery(): valueQuery() ; track $index) {
         <tr class="text-gray-700 hover:bg-gray-100 border-b">
-          <td class="p-2 max-w-[150px] truncate" title="{{ st.key }}">{{ st.key }}</td>
-          <td class="p-2 max-w-[200px] truncate" title="{{ st.value }}">{{ st.value }}</td>
+          <td appQueryHighlight [query]="keyQuery()" class="p-2 max-w-[150px] truncate" title="{{ st.key }}">{{ st.key }}</td>
+          <td appQueryHighlight [query]="valueQuery()" class="p-2 max-w-[200px] truncate" title="{{ st.value }}">{{ st.value }}</td>
           <td class="flex gap-2 justify-center items-center p-2">
             <button
               (click)="onUpdate(st.key)"
